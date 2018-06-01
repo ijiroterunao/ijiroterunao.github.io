@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="胡思乱想,公平,网速," />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="我记得小时候搞不清楚网速快指的一个是下载速度，一个是网络延迟。后来我发现很多东西都是这样的，比如机会公平和分配公平都是公平，实际上完全不一样。机会公平就是在不停地创造不公平,分配公平则是完全的公平。">
-<meta name="keywords" content="胡思乱想,公平,网速">
+<meta name="description" content="lspci  | grep -i vga 显示机器上的显卡信息 [prac_18@mu01 ~]$ lspci | grep -i vga 0a:00.0 VGA compatible controller: ASPEED Technology, Inc. ASPEED Graphics Family (rev 30)">
+<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="公平">
-<meta property="og:url" content="https://ijiroterunao.github.io/2018/03/12/公平/index.html">
+<meta property="og:title" content="linux下查看CPU，内存，显卡信息">
+<meta property="og:url" content="https://ijiroterunao.github.io/2018/03/12/linux下查看CPU信息，内存信息，显卡信息/index.html">
 <meta property="og:site_name" content="July Laiu">
-<meta property="og:description" content="我记得小时候搞不清楚网速快指的一个是下载速度，一个是网络延迟。后来我发现很多东西都是这样的，比如机会公平和分配公平都是公平，实际上完全不一样。机会公平就是在不停地创造不公平,分配公平则是完全的公平。">
+<meta property="og:description" content="lspci  | grep -i vga 显示机器上的显卡信息 [prac_18@mu01 ~]$ lspci | grep -i vga 0a:00.0 VGA compatible controller: ASPEED Technology, Inc. ASPEED Graphics Family (rev 30)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T08:20:10.939Z">
+<meta property="og:updated_time" content="2018-06-01T08:18:48.610Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="公平">
-<meta name="twitter:description" content="我记得小时候搞不清楚网速快指的一个是下载速度，一个是网络延迟。后来我发现很多东西都是这样的，比如机会公平和分配公平都是公平，实际上完全不一样。机会公平就是在不停地创造不公平,分配公平则是完全的公平。">
+<meta name="twitter:title" content="linux下查看CPU，内存，显卡信息">
+<meta name="twitter:description" content="lspci  | grep -i vga 显示机器上的显卡信息 [prac_18@mu01 ~]$ lspci | grep -i vga 0a:00.0 VGA compatible controller: ASPEED Technology, Inc. ASPEED Graphics Family (rev 30)">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://ijiroterunao.github.io/2018/03/12/公平/"/>
+  <link rel="canonical" href="https://ijiroterunao.github.io/2018/03/12/linux下查看CPU信息，内存信息，显卡信息/"/>
 
 
 
 
 
-  <title>公平 | July Laiu</title>
+  <title>linux下查看CPU，内存，显卡信息 | July Laiu</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://ijiroterunao.github.io/2018/03/12/公平/">
+    <link itemprop="mainEntityOfPage" href="https://ijiroterunao.github.io/2018/03/12/linux下查看CPU信息，内存信息，显卡信息/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ijiroterunao">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">公平</h1>
+          <h1 class="post-title" itemprop="name headline">linux下查看CPU，内存，显卡信息</h1>
         
 
         <div class="post-meta">
@@ -352,7 +352,37 @@
       
 
       
-        <p>我记得小时候搞不清楚网速快指的一个是下载速度，一个是网络延迟。后来我发现很多东西都是这样的，比如机会公平和分配公平都是公平，实际上完全不一样。机会公平就是在不停地创造不公平,分配公平则是完全的公平。</p>
+        <p>lspci  | grep -i vga</p>
+<p>显示机器上的显卡信息</p>
+<pre><code>[prac_18@mu01 ~]$ lspci | grep -i vga
+0a:00.0 VGA compatible controller: ASPEED Technology, Inc. ASPEED Graphics Family (rev 30)                                          
+[prac_18@mu01 ~]$ 
+</code></pre><p>如果想看某个显卡的详细的信息，比如0a:00.0</p>
+<pre><code>[root@localhost conf]# lspci -v -s 02:00.0
+</code></pre><p>但是我的系统上其实是装了两块显卡的，还有两块显示不出来，这个时候，对于nvidia显卡的话可以用nvidia-smi命令来查</p>
+<pre><code>[prac_18@mu01 ~]$ nvidia-smi
+Fri Jun  1 16:11:49 2018
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 375.26                 Driver Version: 375.26                    |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla K80           Off  | 0000:86:00.0     Off |                    0 |
+| N/A   33C    P0    59W / 149W |      0MiB / 11439MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  Tesla K80           Off  | 0000:87:00.0     Off |                    0 |
+| N/A   26C    P0    74W / 149W |      0MiB / 11439MiB |     99%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID  Type  Process name                               Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+[prac_18@mu01 ~]$
+</code></pre><p>可以看到，还有一块显卡是 GTX 570， 显存是 1279M，也就是我们用lspci看到的 01:00.0</p>
 
       
     </div>
@@ -370,11 +400,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/胡思乱想/" rel="tag"># 胡思乱想</a>
-          
-            <a href="/tags/公平/" rel="tag"># 公平</a>
-          
-            <a href="/tags/网速/" rel="tag"># 网速</a>
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
         </div>
       
@@ -387,14 +413,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/03/12/公平/" rel="next" title="公平">
+                <i class="fa fa-chevron-left"></i> 公平
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/03/12/linux下查看CPU信息，内存信息，显卡信息/" rel="prev" title="linux下查看CPU，内存，显卡信息">
-                linux下查看CPU，内存，显卡信息 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/27/人生第一个bash脚本，超级简陋，开启60001..61000端口/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
