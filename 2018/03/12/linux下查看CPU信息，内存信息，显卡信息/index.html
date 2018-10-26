@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="July Laiu">
 <meta property="og:description" content="lspci  | grep -i vga 显示机器上的显卡信息 [prac_18@mu01 ~]$ lspci | grep -i vga 0a:00.0 VGA compatible controller: ASPEED Technology, Inc. ASPEED Graphics Family (rev 30)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T08:18:48.610Z">
+<meta property="og:updated_time" content="2018-06-01T08:39:21.445Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux下查看CPU，内存，显卡信息">
 <meta name="twitter:description" content="lspci  | grep -i vga 显示机器上的显卡信息 [prac_18@mu01 ~]$ lspci | grep -i vga 0a:00.0 VGA compatible controller: ASPEED Technology, Inc. ASPEED Graphics Family (rev 30)">
@@ -359,7 +359,7 @@
 [prac_18@mu01 ~]$ 
 </code></pre><p>如果想看某个显卡的详细的信息，比如0a:00.0</p>
 <pre><code>[root@localhost conf]# lspci -v -s 02:00.0
-</code></pre><p>但是我的系统上其实是装了两块显卡的，还有两块显示不出来，这个时候，对于nvidia显卡的话可以用nvidia-smi命令来查</p>
+</code></pre><p>有的显卡不会显示，nvidia显卡的话可以用nvidia-smi命令</p>
 <pre><code>[prac_18@mu01 ~]$ nvidia-smi
 Fri Jun  1 16:11:49 2018
 +-----------------------------------------------------------------------------+
@@ -382,7 +382,7 @@ Fri Jun  1 16:11:49 2018
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
 [prac_18@mu01 ~]$
-</code></pre><p>可以看到，还有一块显卡是 GTX 570， 显存是 1279M，也就是我们用lspci看到的 01:00.0</p>
+</code></pre><p>ati显卡的话试试”amdconfig –odgc” and “amdconfig –odgt”</p>
 
       
     </div>
@@ -423,8 +423,8 @@ Fri Jun  1 16:11:49 2018
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/27/人生第一个bash脚本，超级简陋，开启60001..61000端口/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/27/2/" rel="prev" title="个人与环境">
+                个人与环境 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -493,7 +493,7 @@ Fri Jun  1 16:11:49 2018
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -515,7 +515,7 @@ Fri Jun  1 16:11:49 2018
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
